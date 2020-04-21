@@ -1,15 +1,15 @@
 all:
   hosts:
     kvm1-eth2.local:
-      ansible_host: kvm1
+      ansible_host: 192.168.1.100
     kvm2-eth2.local:
-      ansible_host: kvm2
+      ansible_host: 192.168.1.101
     kvm3-eth2.local:
-      ansible_host: kvm3
+      ansible_host: 192.168.1.102
     kvm4-eth2.local:
-      ansible_host: kvm4
-    vars:
-      kube_version: v1.18.0
+      ansible_host: 192.168.1.103
+  vars:
+    kube_version: v1.18.0
 kube-master:
   hosts:
     kvm1-eth2.local:
