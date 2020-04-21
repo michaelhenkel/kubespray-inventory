@@ -1,0 +1,32 @@
+all:
+  hosts:
+    kvm1-eth2.local:
+      ansible_host: kvm1
+    kvm2-eth2.local:
+      ansible_host: kvm2
+    kvm3-eth2.local:
+      ansible_host: kvm3
+    kvm4-eth2.local:
+      ansible_host: kvm4
+    vars:
+      kube_version: v1.18.0
+kube-master:
+  hosts:
+    kvm1-eth2.local:
+    kvm2-eth2.local:
+    kvm3-eth2.local:
+kube-node:
+  hosts:
+    kvm4-eth2.local:
+  vars:
+    node_labels:
+      node-role.opencontrail.org: vrouter
+etcd:
+  hosts:
+    kvm1-eth2.local:
+    kvm2-eth2.local:
+    kvm3-eth2.local:
+k8s-cluster:
+  children:
+    kube-master:
+    kube-node:
